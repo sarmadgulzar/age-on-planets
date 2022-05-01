@@ -14,43 +14,10 @@
         </ul>
     </div>
 
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.umd.prod.js"></script>
-
-    <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    date: new Date().toLocaleDateString("en-ZA"),
-                    planets: [
-                        { name: 'Mercury', orbital_period: 87.9691, age: 0 },
-                        { name: 'Venus', orbital_period: 224.7, age: 0 },
-                        { name: 'Earth', orbital_period: 365.25636, age: 0 },
-                        { name: 'Mars', orbital_period: 687, age: 0 },
-                        { name: 'Jupiter', orbital_period: 4331, age: 0 },
-                        { name: 'Saturn', orbital_period: 10747, age: 0 },
-                        { name: 'Uranus', orbital_period: 30589, age: 0 },
-                        { name: 'Neptune', orbital_period: 59800, age: 0 },
-                    ],
-                }
-            },
-            watch: {
-                date(newDate, oldDate) {
-                    if (newDate === null) {
-                        this.date = new Date(oldDate).toLocaleDateString("en-ZA")
-                    }
-                }
-            },
-            methods: {
-                pastDates(date) {
-                    return date <= new Date().toLocaleDateString("en-ZA")
-                }
-            },
-        })
-
-        app.use(Quasar)
-        app.mount('#q-app')
-    </script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
