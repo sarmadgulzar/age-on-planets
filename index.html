@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="q-app">
+        <q-date v-model="date" :options="pastDates"></q-date>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.umd.prod.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    date: new Date().toLocaleDateString("en-ZA"),
+                }
+            },
+            watch: {
+                date(newDate, oldDate) {
+                    if (newDate === null) {
+                        this.date = new Date(oldDate).toLocaleDateString("en-ZA")
+                    }
+                }
+            },
+            methods: {
+                pastDates(date) {
+                    return date <= new Date().toLocaleDateString("en-ZA")
+                }
+            },
+        })
+
+        app.use(Quasar)
+        app.mount('#q-app')
+    </script>
+</body>
+
+</html>
