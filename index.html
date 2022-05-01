@@ -9,6 +9,9 @@
 <body>
     <div id="q-app">
         <q-date v-model="date" :options="pastDates"></q-date>
+        <ul>
+            <li v-for="planet in planets" :key="planet.name">{{ planet.name }}: {{ planet.age }}</li>
+        </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
@@ -19,6 +22,16 @@
             data() {
                 return {
                     date: new Date().toLocaleDateString("en-ZA"),
+                    planets: [
+                        { name: 'Mercury', orbital_period: 87.9691, age: 0 },
+                        { name: 'Venus', orbital_period: 224.7, age: 0 },
+                        { name: 'Earth', orbital_period: 365.25636, age: 0 },
+                        { name: 'Mars', orbital_period: 687, age: 0 },
+                        { name: 'Jupiter', orbital_period: 4331, age: 0 },
+                        { name: 'Saturn', orbital_period: 10747, age: 0 },
+                        { name: 'Uranus', orbital_period: 30589, age: 0 },
+                        { name: 'Neptune', orbital_period: 59800, age: 0 },
+                    ],
                 }
             },
             watch: {
